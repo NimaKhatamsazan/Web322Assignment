@@ -1,0 +1,41 @@
+
+{{>headers}}
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" href="/signUp.css">
+
+</head>
+<body>
+<div id="h2">
+<h2>Sign Up Form</h2>
+</body></div>
+<form action="/action_page.sql" method="post">
+  <div class="imgcontainer">
+    <img src="images/easy-signup.png" alt="Avatar" class="avatar" width="100">
+  </div>
+
+  <div class="container">
+    <label for="uname"><b>First Name</b></label>
+    <input type="text" placeholder="Enter First name" name="uname" required>
+
+    <label for="psw"><b>Last Name</b></label>
+    <input type="text" placeholder="Enter Last Name" name="psw" required>
+    <label for="uname"><b>Email</b></label>
+    <input type="text" placeholder="Enter Email Address" name="uname" required>
+      <label for="psw"><b>Password</b></label>
+    <input type="text" placeholder="Enter Password" name="psw" required>
+        
+    <button type="submit">Sign Up Now</button>
+    <label>
+      <input type="checkbox" checked="checked" name="remember"> Remember me
+    </label>
+  </div>
+
+ 
+</form>
+
+</body>
+</html>
+
+{{>footer}}
