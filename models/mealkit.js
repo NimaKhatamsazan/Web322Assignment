@@ -4,7 +4,7 @@ var fastfood= [
     included:"Delicious Italian Cheese & peperoni",
     description: "Tasty Pizza",
     category: "Fast Food",
-    price: "13$",
+    price: "14$",
     cookingTime: "10 Minutes",
     Calories: '850cal',
     imageURL:"pizzaPeperoni.jpg",
