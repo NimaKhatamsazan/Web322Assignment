@@ -10,17 +10,17 @@
 <div id="h2">
 <h2>Login Form</h2>
 </body></div>
-<form action="/action_page.sql" method="post">
+<form action="/loginPage" method="post">
   <div class="imgcontainer">
     <img src="images/img_avatar2.png" alt="Avatar" class="avatar" width="100">
   </div>
 
   <div class="container">
     <label for="uname"><b>Username</b></label>
-    <input type="text" placeholder="Enter Username" name="uname" required>
+    <input type="text" placeholder="Enter Username" name="uname" value= {{values.uname}} >
 
     <label for="psw"><b>Password</b></label>
-    <input type="password" placeholder="Enter Password" name="psw" required>
+    <input type="password" placeholder="Enter Password" name="psw" value= {{values.psw}} >
         
     <button type="submit">Login</button>
     <label>

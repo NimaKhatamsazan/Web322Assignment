@@ -9,15 +9,20 @@
 *  Course/Section: WEB322 ZAA
 * 
 ************************************************************************************/
-
+const dotenv = require('dotenv');
+dotenv.config({path:"keys.env"});
 const path = require("path");
 const express = require ("express");
-const exphbs = require('express-handlebars')
+const exphbs = require('express-handlebars');
 const app = express();
-app.engine('.hbs', exphbs({extname: '.hbs'}));
+app.engine('.hbs', exphbs({extname: '.hbs', defaultLayout: 'home'}, ));
 app.set('view engine','.hbs');
 const mealkitModel= require("./models/mealkit")
 app.use(express.static("static"));
+const bodyParser = require('body-parser');
+// Set up body parser
+app.use(bodyParser.urlencoded({ extended: false }));
+//set up home page
 
 //set up home page
 
@@ -61,6 +66,18 @@ app.get("/login", (req,res)  =>{
     
         layout:false
     });
+    
+    
+});
+app.get("/welcome", (req,res)  =>{
+    
+
+    res.render("welcome", {
+    
+        layout:false
+    });
+    
+    
 });
 app.get("/signUp", (req,res)  =>{
     
@@ -70,6 +87,12 @@ app.get("/signUp", (req,res)  =>{
         layout:false
     });
 });
+
+// Configure my controllers.
+const generalController = require("./controllers/general");
+
+app.use("/", generalController);
+
 // *** THE FOLLOWING CODE SHOULD APPEAR IN YOUR ASSIGNMENT AS IS (WITHOUT MODIFICATION) ***
 
 // This use() will not allow requests to go beyond it

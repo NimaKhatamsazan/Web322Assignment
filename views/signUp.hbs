@@ -10,21 +10,23 @@
 <div id="h2">
 <h2>Sign Up Form</h2>
 </body></div>
-<form action="/action_page.sql" method="post">
+<form action="/signUp" method="post">
   <div class="imgcontainer">
     <img src="images/easy-signup.png" alt="Avatar" class="avatar" width="100">
   </div>
 
   <div class="container">
     <label for="uname"><b>First Name</b></label>
-    <input type="text" placeholder="Enter First name" name="uname" required>
-
+    <input type="text" placeholder="Enter First name" name="uname" value= {{values.uname}}><br/>
+    {{#if validation.uname}}
+<span style= "color: red;">{{validation.uname}}</span><br/>
+{{/if}}
     <label for="psw"><b>Last Name</b></label>
-    <input type="text" placeholder="Enter Last Name" name="psw" required>
+    <input type="text" placeholder="Enter Last Name" name="lname" value= {{values.lname}}><br/>
     <label for="uname"><b>Email</b></label>
-    <input type="text" placeholder="Enter Email Address" name="uname" required>
+    <input type="text" placeholder="Enter Email Address" name="email" value= {{values.email}}><br/>
       <label for="psw"><b>Password</b></label>
-    <input type="text" placeholder="Enter Password" name="psw" required>
+    <input type="text" placeholder="Enter Password" name="psw" value= {{values.psw}}>
         
     <button type="submit">Sign Up Now</button>
     <label>
