@@ -2,41 +2,48 @@ const express = require('express');
 const router = express.Router();
 
 // Login page
-router.get('/loginPage', (req, res) => {
+router.get('/login', (req, res) => {
   res.render('login', {
     title: 'login Page',
   });
 });
 
-router.post('/loginPage', (req, res) => {
-  const { email, psw } = req.body;
+router.post('/login', (req, res) => {
+  const { uname, psw } = req.body;
 
   let passed = true;
   let validation = {};
-  const emailRegex =
-    /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+ 
+  // const emailRegex =
+  //   /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
 
-  const passwordRegex =
-    /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#\$%\^&\*])(?=.{6,12})/;
+  // const passwordRegex =
+  //   /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#\$%\^&\*])(?=.{6,12})/;
 
   if (
-    typeof email !== 'string' ||
-    email.trim().length === 0 ||
-    !emailRegex.test(email)
+    typeof uname !== 'string' ||
+    uname.trim().length === 0 
+    // ||
+    // !emailRegex.test(email)
   ) {
     passed = false;
-    validation.email = 'You must enter a correct email address';
+    validation.uname = 'You must enter a correct UserName';
   } else if (
-    typeof psw !== 'string' ||
-    psw.trim().length === 0 ||
-    !passwordRegex.test(psw)
+    // typeof psw !== 'string' ||
+    psw.trim().length === 0 
+    // ||
+    // !passwordRegex.test(psw)
   ) {
     passed = false;
-    validation.password = 'You must enter a strong password';
+    validation.password = 'You must enter a correct password';
   }
 
   if (passed) {
-    res.redirect('/welcome');
+    res.redirect(`/welcome/?username=${uname}`);
+    // res.render('welcome', {
+    //   values: req.body,
+    //   layout: false,
+    // });
   } else {
     res.render('login', {
       values: req.body,
@@ -48,13 +55,14 @@ router.post('/loginPage', (req, res) => {
 
 // Sign Up page
 router.get('/signUp', (req, res) => {
-  res.render('/signUp', {
+  res.render('signUp', {
     title: 'Sign Up Page',
+    layout: false
   });
 });
 
 router.post('/signUp', (req, res) => {
-  console.log(req.body);
+
   const { uname, lname, email, psw } = req.body;
 
   let passed = true;
@@ -105,7 +113,7 @@ router.post('/signUp', (req, res) => {
       .then(() => {
         // Validation passed, sent out an email.
         // res.send('Success, validation passed, email sent.');
-        res.redirect('/welcome');
+        res.redirect(`/welcome/?username=${uname}`);
       })
       .catch(err => {
         console.log(`Error ${err}`);
@@ -125,8 +133,6 @@ router.post('/signUp', (req, res) => {
   }
 });
 
-router.get('/welcome', (req, res, next) => {
-  res.render('welcome', { layout: false });
-});
+
 
 module.exports = router;

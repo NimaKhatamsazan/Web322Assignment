@@ -24,12 +24,12 @@
     <label for="psw"><b>Last Name</b></label>
     <input type="text" placeholder="Enter Last Name" name="lname" value= {{values.lname}}><br/>
     <label for="uname"><b>Email</b></label>
-    <input type="text" placeholder="Enter Email Address" name="email" value= {{values.email}}><br/>
+    <input type="email" placeholder="Enter Email Address" name="email" value= {{values.email}}><br/>
      {{#if validation.email}}
 <span style= "color: red;">{{validation.email}}</span><br/>
 {{/if}}
       <label for="psw"><b>Password</b></label>
-    <input type="text" placeholder="Enter Password" name="psw" value= {{values.psw}}>
+    <input type="password" placeholder="Enter Password" name="psw" value= {{values.psw}}>
          {{#if validation.password}}
 <span style= "color: red;">{{validation.password}}</span><br/>
 {{/if}}

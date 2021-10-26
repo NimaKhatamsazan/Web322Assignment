@@ -10,16 +10,16 @@
 <div id="h2">
 <h2>Login Form</h2>
 </body></div>
-<form action="/loginPage" method="post">
+<form action="/login" method="post">
   <div class="imgcontainer">
     <img src="images/img_avatar2.png" alt="Avatar" class="avatar" width="100">
   </div>
 
   <div class="container">
     <label for="uname"><b>Username</b></label>
-    <input type="text" placeholder="Enter Email" name="email" value= {{values.email}} >
- {{#if validation.email}}
-<span style= "color: red;">{{validation.email}}</span><br/>
+    <input type="text" placeholder="Enter UserName" name="uname" value= {{values.uname}} >
+ {{#if validation.uname}}
+<span style= "color: red;">{{validation.uname}}</span><br/>
 {{/if}}
     <label for="psw"><b>Password</b></label>
     <input type="password" placeholder="Enter Password" name="psw" value= {{values.psw}} >

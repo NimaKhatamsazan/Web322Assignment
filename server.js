@@ -57,18 +57,24 @@
      layout: false,
    });
  });
- app.get('/welcome', (req, res) => {
-   res.render('welcome', {
-    fastfood: mealkitModel.getAllMealKit(),
 
-     layout: false,
-   });
- });
- app.get('/signUp', (req, res) => {
-   res.render('signUp', {
-     layout: false,
-   });
- });
+ app.get('/welcome', (req, res, next) => {
+  res.render('welcome', { layout: false, username: req.query.username, fastfood: mealkitModel.getAllMealKit() });
+});
+
+
+//  app.get('/welcome', (req, res) => {
+//    res.render('welcome', {
+//     fastfood: mealkitModel.getAllMealKit(),
+
+//      layout: false,
+//    });
+//  });
+//  app.get('/signUp', (req, res) => {
+//    res.render('signUp', {
+//      layout: false,
+//    });
+//  });
  
  // Configure my controllers.
  const generalController = require('./controllers/general');
