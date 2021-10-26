@@ -7,7 +7,10 @@
  *  Name: Nima Khatamsazan
  *  Student ID: 136034204
  *  Course/Section: WEB322 ZAA
- *
+ *  ## Project URLs 
+   GitHub Repository: https://github.com/NimaKhatamsazan/Web322Assignment
+   Heroku URL: https://web-322-assignment.herokuapp.com/
+
  ************************************************************************************/
  const dotenv = require('dotenv');
  dotenv.config();
