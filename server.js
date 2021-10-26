@@ -56,6 +56,8 @@
  });
  app.get('/welcome', (req, res) => {
    res.render('welcome', {
+    fastfood: mealkitModel.getAllMealKit(),
+
      layout: false,
    });
  });

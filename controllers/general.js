@@ -95,8 +95,10 @@ router.post('/signUp', (req, res) => {
       to: email,
       from: 'akhatamsazan@myseneca.ca',
       subject: 'Canada Eats Sign Up',
-      html: `Vistor's Full Name: ${uname} ${lname}<br>
-                Vistor's Email Address: ${email}<br>                `,
+      html: `<strong>Thank you for choosing us</strong> <br>
+      Hi dear ${uname} ${lname}<br>
+                Your Email Address is ${email}<br>   
+                 We will keep in touch by this email.<br>`,
     };
     sgMail
       .send(msg)
