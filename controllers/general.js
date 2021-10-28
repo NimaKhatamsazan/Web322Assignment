@@ -9,25 +9,24 @@ router.get('/login', (req, res) => {
 });
 
 router.post('/login', (req, res) => {
-  const { uname, psw } = req.body;
+  const { email, psw } = req.body;
 
   let passed = true;
   let validation = {};
  
-  // const emailRegex =
-  //   /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+  const emailRegex =
+    /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
 
   // const passwordRegex =
   //   /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#\$%\^&\*])(?=.{6,12})/;
 
   if (
-    typeof uname !== 'string' ||
-    uname.trim().length === 0 
-    // ||
-    // !emailRegex.test(email)
+    typeof email !== 'string' ||
+    email.trim().length === 0 
+    || !emailRegex.test(email)
   ) {
     passed = false;
-    validation.uname = 'You must enter a correct UserName';
+    validation.email = 'You must enter a correct Email';
   } else if (
     // typeof psw !== 'string' ||
     psw.trim().length === 0 
@@ -39,7 +38,7 @@ router.post('/login', (req, res) => {
   }
 
   if (passed) {
-    res.redirect(`/welcome/?username=${uname}`);
+    res.redirect(`/welcome/?username=${email}`);
     // res.render('welcome', {
     //   values: req.body,
     //   layout: false,
