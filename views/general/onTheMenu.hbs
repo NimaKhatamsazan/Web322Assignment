@@ -1,0 +1,29 @@
+    
+{{>headers}}
+
+<link rel="stylesheet" href="/onTheMenu.css">
+
+
+<h2>Fast Food</h2>
+
+<div class="menu">
+
+                {{#each fastfood}}
+    <div class="menu_item"><p>
+<div class="title_price_description">
+        {{title}} </div>
+
+        <h3>=
+        {{price}}</h3>
+        <img src="/images/{{imageURL}}" alt="{{title}}" width="200" height="150"/>
+    </p>
+    <p class="item-description"><strong>with</strong> {{included}}</p>
+    </div>
+{{/each}}
+    </div>
+   
+
+
+    {{!-- <div class="clr"></div> --}}
+
+{{>footer}}

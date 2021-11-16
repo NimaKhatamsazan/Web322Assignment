@@ -24,7 +24,7 @@
     <label for="psw"><b>Last Name</b></label>
     <input type="text" placeholder="Enter Last Name" name="lname" value= {{values.lname}}><br/>
     <label for="uname"><b>Email</b></label>
-    <input type="text" placeholder="Enter Email Address" name="email" value= {{values.email}} readonly><br/>
+    <input type="text" placeholder="Enter Email Address" name="email" value= {{values.email}}><br/>
      {{#if validation.email}}
 <span style= "color: red;">{{validation.email}}</span><br/>
 {{/if}}
@@ -34,6 +34,14 @@
 <span style= "color: red;">{{validation.password}}</span><br/>
 {{/if}}
 
+<label><b>Role</b></label>
+<input type="radio" id="customer" name="role" value='customer' checked>
+<label for="customer">Customer</label><br>
+<input type="radio" id="clerk" name="role" value='clerk'>
+<label for="clerk">Clerk</label>
+
+
+         
     <button type="submit">Sign Up Now</button>
     <label>
       <input type="checkbox" checked="checked" name="remember"> Remember me
