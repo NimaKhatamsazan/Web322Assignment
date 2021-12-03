@@ -6,24 +6,38 @@
 
 <h2>Fast Food</h2>
 
+
 <div class="menu">
 
-                {{#each fastfood}}
+                {{#each meals}}
     <div class="menu_item"><p>
 <div class="title_price_description">
         {{title}} </div>
 
-        <h3>=
+        <h3>
         {{price}}</h3>
+        <h3>
+        Category: {{category}}</h3>
         <img src="/images/{{imageURL}}" alt="{{title}}" width="200" height="150"/>
     </p>
     <p class="item-description"><strong>with</strong> {{included}}</p>
+
+  
+   <br>
+  <p style="font-size: large;">
+      <a href='/load-data/{{id}}'>Edit this meal data</a>
+  </p>
+
+ 
+
+
+
+
     </div>
 {{/each}}
     </div>
    
 
 
-    {{!-- <div class="clr"></div> --}}
 
 {{>footer}}

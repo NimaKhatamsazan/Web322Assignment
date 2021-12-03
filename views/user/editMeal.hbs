@@ -1,0 +1,88 @@
+
+{{>headers}}
+<!DOCTYPE html>
+<html>
+<head>
+      <link rel="stylesheet" href="/login.css">
+
+</head>
+<body>
+<div id="h2">
+<h2>Edit meal</h2>
+</body></div>
+<form action="/load-data/{{meal.id}}" method="post" enctype='multipart/form-data'>
+  <div class="imgcontainer">
+    <br />
+    <br />
+    {{#if validation.role}}
+<span style= "color: red; font-weight: bold;">You are not authorized to see this page</span><br/>
+{{else}}
+
+
+<br />
+    <br />
+  {{#if message.success}}
+<span style= "color: green; font-weight: bold;">{{message.success}}</span><br/>
+{{/if}}
+
+  {{#if message.fail}}
+<span style= "color: red; font-weight: bold;">{{message.fail}}</span><br/>
+{{/if}}
+
+  </div>
+
+ 
+
+
+  <div class="container">
+      <img src='/images/{{meal.imageURL}}'width="150px" />
+
+      <br>
+        <label for="image"><b>Image</b></label>
+    <input type="file" name="image"  >
+
+    <label for="title"><b>Title</b></label>
+    <input type="text" placeholder="Enter title" name="title" value={{meal.title}}  >
+ 
+    <label for="included"><b>What is included</b></label>
+    <input type="text" placeholder="Enter ingredients" name="included" value={{meal.included}}>
+
+    <label for="description"><b>Description</b></label>
+    <input type="text" placeholder="Enter description" name="description"  value={{meal.description}}>
+
+    <label for="category"><b>Category</b></label>
+    <input type="text" placeholder="Enter category" name="category"  value={{meal.category}}>
+
+    <label for="price"><b>Price</b></label>
+    <input type="text" placeholder="Enter price" name="price"  value={{meal.price}}>
+
+    <label for="calories"><b>Calories</b></label>
+    <input type="text" placeholder="Enter calories" name="calories"  value={{meal.calories}}>
+
+    <label for="cookingTime"><b>Cooking time</b></label>
+    <input type="text" placeholder="Enter cooking time" name="cookingTime"  value={{meal.cookingTime}}>
+
+      <label for="servings"><b>Servings</b></label>
+    <input type="text" placeholder="Enter servings" name="servings"  value={{meal.servings}}>
+
+
+    <label><b>Is it top meal?</b></label>
+<input type="radio" id="yes" name="topMeals" value='true'>
+<label for="yes">Yes</label><br>
+<input type="radio" id="no" name="topMeals" value='false' checked>
+<label for="no">No</label>
+
+
+
+    <button type="submit">Add</button>
+ 
+  </div>
+
+
+</form>
+{{/if}}
+
+</body>
+</html>
+
+{{>footer}}

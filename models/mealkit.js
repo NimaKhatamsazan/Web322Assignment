@@ -1,72 +1,71 @@
 var fastfood = [
-  (pizza = {
+  {
     title: 'Pizza Peperoni',
     included: 'Delicious Italian Cheese & peperoni',
     description: 'Tasty Pizza',
-    category: 'Fast Food',
+    category: 'Italian',
     price: '14$',
     cookingTime: '10 Minutes',
-    Calories: '850cal',
+    calories: '850cal',
     imageURL: 'pizzaPeperoni.jpg',
     topMeals: true,
-  }),
-  (burger = {
+  },
+  {
     title: 'King Burger',
     included: 'Famous American Cheese & Organic Meat',
     description: 'Tasty burger',
-    category: 'Fast Food',
+    category: 'American',
     price: '8$',
     cookingTime: '8 Minutes',
-    Calories: '750cal',
+    calories: '750cal',
     imageURL: 'KingBurger.jpg',
-
     topMeals: true,
-  }),
-  (chickenBurger = {
+  },
+  {
     title: 'Chicken Burger',
     included: 'The Best Taste of Domestic Chicken',
     description: 'Tasty Chicken',
-    category: 'Fast Food',
+    category: 'American',
     price: '7$',
     cookingTime: '9 Minutes',
-    Calories: '650cal',
+    calories: '650cal',
     imageURL: 'ChickenBurger.jpg',
     topMeals: true,
-  }),
-  (pasta = {
+  },
+  {
     title: 'Pasta',
     included: 'Real Alfredo Pasta & chicken',
     description: 'Tasty pasta',
-    category: 'Fast Food',
+    category: 'Italian',
     price: '8$',
     cookingTime: '10 Minutes',
-    Calories: '840cal',
+    calories: '840cal',
     imageURL: 'pasta.png',
 
     topMeals: false,
-  }),
-  (hotDog = {
+  },
+  {
     title: 'Hot Dog',
     included: 'Real American Hot dog',
     description: 'Tasty hot dog',
-    category: 'Fast Food',
+    category: 'American',
     price: '2$',
     cookingTime: '5 Minutes',
-    Calories: '350cal',
+    calories: '350cal',
     imageURL: 'hotDog.jpg',
     topMeals: false,
-  }),
-  (wings = {
+  },
+  {
     title: 'Wings',
     included: 'Organic Wings',
     description: 'Tasty Wing',
-    category: 'Fast Food',
+    category: 'American',
     price: '15$',
     cookingTime: '20 Minutes',
-    Calories: '550cal',
+    calories: '550cal',
     imageURL: 'wings.jpg',
     topMeals: false,
-  }),
+  },
 ];
 
 module.exports.getAllMealKit = function () {

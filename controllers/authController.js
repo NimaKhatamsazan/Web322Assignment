@@ -27,7 +27,7 @@ router.get('/logout', (req, res, next) => {
 
 // login
 router.post('/login', (req, res) => {
-  const { email, psw, role } = req.body;
+  const { email, psw } = req.body;
 
   // validation
   let passed = true;
@@ -62,10 +62,14 @@ router.post('/login', (req, res) => {
     email: email,
   })
     .then(user => {
+      let { role } = user;
       if (!user) {
         res.render('user/login', {
           values: req.body,
-          validation: { ...validation, email: 'Could not find the user' },
+          validation: {
+            ...validation,
+            email: 'Could not find the user',
+          },
           layout: false,
         });
       }
@@ -79,7 +83,9 @@ router.post('/login', (req, res) => {
             req.session.user = user;
             req.session.role = role;
 
-            res.redirect(role === 'customer' ? '/customer' : '/clerk');
+            res.redirect(
+              role === 'customer' ? '/customer' : '/clerk'
+            );
           } else {
             res.render('user/login', {
               values: req.body,
@@ -99,7 +105,6 @@ router.post('/login', (req, res) => {
 // signup
 router.post('/signUp', (req, res) => {
   const { uname, lname, email, psw, role } = req.body;
-  console.log(role);
 
   let passed = true;
   let validation = {};
@@ -119,7 +124,8 @@ router.post('/signUp', (req, res) => {
     validation.uname = 'You must enter your Last name';
   } else if (typeof uname !== 'string' || uname.trim().length < 2) {
     passed = false;
-    validation.uname = 'Your First name must be more than 2 characters';
+    validation.uname =
+      'Your First name must be more than 2 characters';
   } else if (
     typeof email !== 'string' ||
     email.trim().length === 0 ||
@@ -164,6 +170,7 @@ router.post('/signUp', (req, res) => {
           lastName: lname,
           email: email,
           password: hashedPassword,
+          role: role,
         });
 
         return user.save();

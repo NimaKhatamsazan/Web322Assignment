@@ -20,11 +20,15 @@ const bodyParser = require('body-parser');
 const session = require('express-session');
 const generalController = require('./controllers/generalController');
 const authController = require('./controllers/authController');
+const dataController = require('./controllers/dataController');
 
 dotenv.config({ path: './config/.env' });
 const app = express();
 
-app.engine('.hbs', exphbs({ extname: '.hbs', defaultLayout: 'home' }));
+app.engine(
+  '.hbs',
+  exphbs({ extname: '.hbs', defaultLayout: 'home' })
+);
 app.set('view engine', '.hbs');
 app.use(express.static('static'));
 
@@ -43,6 +47,7 @@ app.use(
 // Configure my controllers.
 app.use('/', generalController);
 app.use('/', authController);
+app.use('/', dataController);
 
 // *** THE FOLLOWING CODE SHOULD APPEAR IN YOUR ASSIGNMENT AS IS (WITHOUT MODIFICATION) ***
 
