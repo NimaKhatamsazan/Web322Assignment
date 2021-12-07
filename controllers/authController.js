@@ -27,7 +27,7 @@ router.get('/logout', (req, res, next) => {
 
 // login
 router.post('/login', (req, res) => {
-  const { email, psw } = req.body;
+  const { email, psw, role } = req.body;
 
   // validation
   let passed = true;
@@ -62,7 +62,7 @@ router.post('/login', (req, res) => {
     email: email,
   })
     .then(user => {
-      let { role } = user;
+      // let { role } = user;
       if (!user) {
         res.render('user/login', {
           values: req.body,
@@ -104,7 +104,7 @@ router.post('/login', (req, res) => {
 
 // signup
 router.post('/signUp', (req, res) => {
-  const { uname, lname, email, psw, role } = req.body;
+  const { uname, lname, email, psw } = req.body;
 
   let passed = true;
   let validation = {};
@@ -170,7 +170,7 @@ router.post('/signUp', (req, res) => {
           lastName: lname,
           email: email,
           password: hashedPassword,
-          role: role,
+          role: 'customer',
         });
 
         return user.save();

@@ -11,7 +11,8 @@ router.post(
   (req, res, next) => {
     // authorize user
     const user = req.session.user;
-    if (!user || user.role !== 'clerk') {
+    const role = req.session.role;
+    if (!user || role !== 'clerk') {
       res.send('You are not authorized to see this page');
     }
     const {
@@ -60,10 +61,11 @@ router.post(
 // load to server
 router.get('/load-data/meal-kits', (req, res, next) => {
   const user = req.session.user;
+  const role = req.session.role;
   const mealKits = mealkitModel.getAllMealKit();
   let message;
 
-  if (!user || user.role !== 'clerk') {
+  if (!user || role !== 'clerk') {
     res.send('You are not authorized to see this page');
   } else {
     Meal.find({})
@@ -99,10 +101,11 @@ router.get('/load-data/meal-kits', (req, res, next) => {
 // /load-data/:id
 router.get('/load-data/:id', (req, res, next) => {
   const user = req.session.user;
+  const role = req.session.role;
   const mealId = req.params.id;
 
   // authorize user
-  if (!user || user.role !== 'clerk') {
+  if (!user || role !== 'clerk') {
     res.render('user/editMeal', {
       layout: false,
       validation: { role: 'other' },
@@ -146,6 +149,7 @@ router.post(
   fileUpload.single('image'),
   (req, res, next) => {
     const user = req.session.user;
+    const role = req.session.role;
     const mealId = req.params.id;
     const {
       title,
@@ -162,7 +166,7 @@ router.post(
     const imageURL = req?.file?.filename;
 
     // authorize user
-    if (!user || user.role !== 'clerk') {
+    if (!user || role !== 'clerk') {
       res.send('You are not authorized to see this page');
     }
 
@@ -213,11 +217,12 @@ router.post(
 // add data to server
 router.get('/load-data', (req, res, next) => {
   const user = req.session.user;
+  const role = req.session.role;
 
   // validation
   let validation = {};
 
-  if (!user || user.role !== 'clerk') {
+  if (!user || role !== 'clerk') {
     validation.role = 'other';
   }
 
