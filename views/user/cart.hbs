@@ -1,0 +1,77 @@
+
+{{>headers}}
+<!DOCTYPE html>
+<html>
+<head>
+      <link rel="stylesheet" href="/login.css">
+
+</head>
+<body>
+<div id="h2">
+{{!-- <h2>{{meal.title}}</h2> --}}
+</body>
+</div>
+
+
+  {{!-- <div class="imgcontainer">
+     <img src='/images/{{meal.imageURL}}' width="250px" />
+
+  </div>
+
+ 
+
+
+<div class="container" style="text-align: center">
+<h3>What is included:  {{meal.included}}</h3>    
+<br>
+<h4>Description: {{meal.description}}</h4>
+<br>
+<h4>Category: {{meal.category}}</h4>
+<br>
+<h4>Price: {{meal.price}}</h4>
+<br>
+<h4>Calories: {{meal.calories}}</h4>
+<br>
+<h4>Cooking Time: {{meal.cookingTime}}</h4>
+<br>
+<h4>Servings: {{meal.servings}}</h4> --}}
+
+<br>
+
+
+{{#if cart}}
+
+<h2>Total Items: {{totalItems}}</h2>
+<h2>Total Price: {{totalPrice}} $</h2>
+<hr>
+<br>
+
+<div style="text-align: center;">
+
+{{#each cart}}
+    <h3>Title: {{title}}</h3>
+    <h3>Quantity: {{qty}}</h3>
+    <h3>Price: {{price}}</h3>
+   <hr>
+  {{/each}}
+
+</div>
+
+
+    <button>
+      <a href="/place-order">Place Order</a>
+    </button>
+
+    {{else}}
+    <h3 style="text-align: center;">No products in cart</h3>
+ {{/if}}
+  </div>
+
+
+
+
+
+</body>
+</html>
+
+{{>footer}}

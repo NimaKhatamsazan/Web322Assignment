@@ -21,6 +21,7 @@ const session = require('express-session');
 const generalController = require('./controllers/generalController');
 const authController = require('./controllers/authController');
 const dataController = require('./controllers/dataController');
+const orderController = require('./controllers/orderController');
 
 dotenv.config({ path: './config/.env' });
 const app = express();
@@ -48,6 +49,7 @@ app.use(
 app.use('/', generalController);
 app.use('/', authController);
 app.use('/', dataController);
+app.use('/', orderController);
 
 // *** THE FOLLOWING CODE SHOULD APPEAR IN YOUR ASSIGNMENT AS IS (WITHOUT MODIFICATION) ***
 

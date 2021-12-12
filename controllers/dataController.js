@@ -1,7 +1,6 @@
 const express = require('express');
 const router = express.Router();
 const fileUpload = require('../middlewares/file-upload');
-const multer = require('multer');
 const Meal = require('../models/mealModel');
 const mealkitModel = require('../models/mealkit');
 

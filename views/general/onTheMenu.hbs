@@ -15,14 +15,17 @@
         {{title}} </div>
 
         <h3>
-        {{price}}</h3>
+        {{price}} $</h3>
         <h3>
         Category: {{category}}</h3>
         <img src="/images/{{imageURL}}" alt="{{title}}" width="200" height="150"/>
     </p>
     <p class="item-description"><strong>with</strong> {{included}}</p>
 
-  
+   <br>
+  <p style="font-size: large;">
+      <a href='/meal/{{id}}'>More Details and add to cart</a>
+  </p>
    <br>
   <p style="font-size: large;">
       <a href='/load-data/{{id}}'>Edit this meal data</a>
