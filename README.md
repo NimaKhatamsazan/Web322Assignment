@@ -13,3 +13,4 @@ Course/Section: WEB322 ZAA
 GitHub Repository: https://github.com/NimaKhatamsazan/Web322Assignment/
 Heroku URL: https://web-322-assignment.herokuapp.com/
  Heroku URL For Assignment5: https://web322-nima-assignment5.herokuapp.com
+Heroku URL For Assignment6: https://web322-nima-assignmnet6.herokuapp.com/
